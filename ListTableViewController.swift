@@ -9,32 +9,50 @@
 import UIKit
 
 class ListTableViewController: UITableViewController {
-
+    
+    var wordArray: [AnyObject] = []
+    let saveData = NSUserDefaults.standardUserDefaults()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        tableView.registerNib(UINib(
+            nibName: "ListTableViewCell",
+            bundle: nil),
+            forCellReuseIdentifier:"cell")
+      
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func didReceiveMemoryWarning(animated: Bool) {
+        super.viewWillAppear(animated)
+        if saveData.arrayForKey("WORD") != nil{
+            wordArray = saveData.arrayForKey("WORD")!
+        }
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
-
+    //セクションの個数を推定
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+               return 1
     }
-
+    
+    //セルの個数推定
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return wordArray.count
+    }
+    
+    //セルの中身の表示の仕方を設定
+    override func tableView(
+        tableView: UITableView,
+        cellForRowAtIndexPathindexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
+            
+            let nowIndexPathDictionary: (AnyObject) = wordArray[indexPath.row]
+            
+            cell.englishLabel.text = nowIndexPathDictionary["english"] as? String
+            cell.japaneselabel.text = nowIndexPathDictionary["japanese"] as? String
+            
+            return cell
     }
 
     /*

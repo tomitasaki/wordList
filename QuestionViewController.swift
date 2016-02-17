@@ -16,7 +16,7 @@ class QuestionViewController: UIViewController {
     
     var isAnswered: Bool = false //回答か次か判断
     var wordArray: [AnyObject] = [] //ユーザーデフォルトからとる配列
-    var shuffledWordArray [AnyObject]: []  //シャッフルされた配列
+    var shuffledWordArray: [AnyObject]= []  //シャッフルされた配列
     var nowNumber: Int = 0 //現在の回答数
 
     let saveData = NSUserDefaults.standardUserDefaults()
