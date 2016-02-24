@@ -43,13 +43,14 @@ class AddViewController: UIViewController {
         alert.addAction(
             UIAlertAction(
                 title: "OK",
-                style: UIAlertActionStyle.Default,
+                style: UIAlertA,
+                ctionStyle.Default,
                 handler: nil
             )
         )
         self.presentViewController(alert, animated: true, completion:nil)
-        englishTextField.text""
-        japaneseTextField.text""
+        englishTextField. text;""
+        japaneseTextField. text;""
 
     }
     

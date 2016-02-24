@@ -22,7 +22,7 @@ class ListTableViewController: UITableViewController {
       
     }
 
-    override func didReceiveMemoryWarning(animated: Bool) {
+    override func DidReceiveMemoryWarning(animated: Bool) {
         super.viewWillAppear(animated)
         if saveData.arrayForKey("WORD") != nil{
             wordArray = saveData.arrayForKey("WORD")!
@@ -44,7 +44,7 @@ class ListTableViewController: UITableViewController {
     //セルの中身の表示の仕方を設定
     override func tableView(
         tableView: UITableView,
-        cellForRowAtIndexPathindexPath: NSIndexPath) -> UITableViewCell {
+        cellForRowAtIndexPath cellForRowAtIndexPathindexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
             
             let nowIndexPathDictionary: (AnyObject) = wordArray[indexPath.row]
