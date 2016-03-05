@@ -15,14 +15,11 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerNib(UINib(
-            nibName: "ListTableViewCell",
-            bundle: nil),
-            forCellReuseIdentifier:"cell")
+        tableView.registerNib(UINib(nibName: "ListTableViewCell",bundle: nil),forCellReuseIdentifier:"cell")
       
     }
 
-    override func DidReceiveMemoryWarning(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if saveData.arrayForKey("WORD") != nil{
             wordArray = saveData.arrayForKey("WORD")!
@@ -42,15 +39,13 @@ class ListTableViewController: UITableViewController {
     }
     
     //セルの中身の表示の仕方を設定
-    override func tableView(
-        tableView: UITableView,
-        cellForRowAtIndexPath cellForRowAtIndexPathindexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView,cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
             
             let nowIndexPathDictionary: (AnyObject) = wordArray[indexPath.row]
             
             cell.englishLabel.text = nowIndexPathDictionary["english"] as? String
-            cell.japaneselabel.text = nowIndexPathDictionary["japanese"] as? String
+            cell.japaneseLabel.text = nowIndexPathDictionary["japanese"] as? String
             
             return cell
     }

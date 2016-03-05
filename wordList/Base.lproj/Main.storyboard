@@ -19,6 +19,9 @@
                                 <state key="normal" title="スタート">
                                     <color key="titleColor" red="0.96695965920000004" green="0.98237126890000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="C8Z-xi-gmc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j5V-3A-Dx2">
                                 <rect key="frame" x="124" y="448" width="60" height="30"/>
@@ -27,6 +30,7 @@
                                     <color key="titleColor" red="0.96695965920000004" green="0.98237126890000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="bacck:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gMF-Ja-xU3"/>
                                     <segue destination="yWY-fu-VVh" kind="modal" id="kty-xD-bEh"/>
                                 </connections>
                             </button>
@@ -89,11 +93,17 @@
                                 <state key="normal" title="答えを表示">
                                     <color key="titleColor" red="0.96695965920000004" green="0.98237126890000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonPushed" destination="GuN-cJ-qx9" eventType="touchUpInside" id="V3t-jl-2BK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.74640052359999998" blue="0.0015465169839999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="answerLabel" destination="DZM-Oo-hp5" id="p74-es-Sva"/>
+                        <outlet property="nextButton" destination="Pi9-b5-YUw" id="B5v-OE-Edm"/>
+                        <outlet property="questionlabel" destination="jgA-Fn-HzJ" id="ubM-1b-8Wn"/>
                         <segue destination="8gS-U7-apO" kind="modal" identifier="toFinishView" id="sYy-rO-ubk"/>
                     </connections>
                 </viewController>
@@ -202,8 +212,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="新規追加" id="Hsd-bh-oGt">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="HgZ-Aw-rEG"/>
+                        <barButtonItem key="rightBarButtonItem" title="セーブ" id="HgZ-Aw-rEG">
+                            <connections>
+                                <action selector="saveWord" destination="r5T-vH-2fq" id="1NT-NB-1jr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="englishTextField" destination="4Rg-Oe-PQf" id="Vb9-DG-V7D"/>
+                        <outlet property="japaneseTextField" destination="YnP-FC-EGa" id="W6a-lB-DRd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llv-lM-gym" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

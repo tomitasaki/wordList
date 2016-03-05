@@ -15,7 +15,7 @@ class AddViewController: UIViewController {
     
     var wordArray: [AnyObject] = []
     let saveData = NSUserDefaults.standardUserDefaults()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,11 +23,7 @@ class AddViewController: UIViewController {
             wordArray = saveData.arrayForKey("WORD")!
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
     @IBAction func saveWord(){
         let wordDictionary =
@@ -43,26 +39,30 @@ class AddViewController: UIViewController {
         alert.addAction(
             UIAlertAction(
                 title: "OK",
-                style: UIAlertA,
-                ctionStyle.Default,
+                style: UIAlertActionStyle.Default,
                 handler: nil
             )
         )
         self.presentViewController(alert, animated: true, completion:nil)
-        englishTextField. text;""
-        japaneseTextField. text;""
-
+        englishTextField.text; = ""
+        japaneseTextField.text; = ""
+        
     }
     
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of a
+        
+    }
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
