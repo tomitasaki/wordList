@@ -27,7 +27,7 @@ class AddViewController: UIViewController {
     
     @IBAction func saveWord(){
         let wordDictionary =
-        ["english":englishTextField.text,"japanese":japaneseTextField.text]
+        ["english":englishTextField.text!,"japanese":japaneseTextField.text!]
         
         wordArray.append(wordDictionary)
         saveData.setObject(wordArray, forKey: "WORD")
@@ -44,8 +44,8 @@ class AddViewController: UIViewController {
             )
         )
         self.presentViewController(alert, animated: true, completion:nil)
-        englishTextField.text; = ""
-        japaneseTextField.text; = ""
+        englishTextField.text = ""
+        japaneseTextField.text = ""
         
     }
     
